@@ -45,6 +45,7 @@ public class FormActivity extends AppCompatActivity {
 
                     //check that all fields are filled
                     if(f.getText().length() <= 0) {
+                        Log.d("fields", "Not all fields are filled");
                         Toast.makeText(getApplicationContext(),
                                 "Please complete all fields",
                                 Toast.LENGTH_SHORT).show();
@@ -53,16 +54,23 @@ public class FormActivity extends AppCompatActivity {
 
                     String pass = passwordInput.getText().toString();
                     String conf = confirmInput.getText().toString();
-                    
+
                     //check if passwords match
                     if(!pass.equals(conf)){
+                        Log.d("fields", "Passwords do not match");
                         Toast.makeText(getApplicationContext(),
                                 "Passwords do not match",
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }
+
                     //all the requirements are met
                     Log.d("btn", "All requirements met");
+
+                    Toast.makeText(getApplicationContext(),
+                            "Welcome, " + nameInput.getText() + "!",
+                            Toast.LENGTH_LONG).show();
+
                 }
             }
         });
